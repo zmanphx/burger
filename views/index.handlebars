@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mike's Burgers</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <div id="BurgerLogo">
+
+        <h2> Mike's Burger Site</h2>
+
+    </div>
+
+
+
+
+    <div class="container">
+
+
+        <div class="row   align-self-start" id="toprow1">
+
+            <div class="col-md-6" id="availableBurgers">
+
+                <ul id ="BurgeravailableUL">
+                    <h2>Burgers to Eat</h2>
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    <li>
+                        <div class="card">
+                            <div class="card-body">
+                             <p><span> ID:</span> {{ this.id}}</p>
+                             <p><span> Burger Name:</span> {{ this.burger_name}}</p>
+                             <p><span> IsDevoured:</span> {{ this.devoured}}</p>
+                           
+                           <a href="#" class="btn btn-primary">Go somewhere</a>
+                           </div>
+                             
+
+                        </div>
+                          <button type="button" class="btn btn-info" data= {{ this.id}}>Devour it</button>
+                              
+                    </li>
+
+                    {{/unless}}
+
+                    {{/each}}
+                </ul>
+
+
+
+            </div>
+
+
+            <div class="col-md-6" id="devouredBurgers">
+                {{!--      <img id="Pic" src="assets/images/MikeHeadshot.jpg" height=170px width="170px"> --}}
+
+                <ul>
+                    {{#each burgers}}
+
+                    {{/each}}
+                </ul>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="row   align-self-start" id="toprow2">
+
+            <div class="col-md-2">
+
+
+            </div>
+
+
+            <div class="col-md-8" id="newBurger">
+                {{!--      <img id="Pic" src="assets/images/MikeHeadshot.jpg" height=170px width="170px"> --}}
+
+
+                <form class="newBurgerForm">
+
+                    <div class="form-group">
+                        <label for="hb">Burger Name:</label>
+                        <input type="text" id="inputBurger" name="name" style="width:400px; height:30px">
+                    </div>
+
+
+                    <button type="submit" id="submitBurger">Add Burger</button>
+                    <label for="submit" id="labelSubmit">Enter Burger you want to eat, Click the "Add Burger"
+                        button.</label>
+                </form>
+
+
+
+
+
+
+
+            </div>
+
+            <div class="col-md-2">
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+</body>
+
+
+</html>
