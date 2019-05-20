@@ -1,8 +1,8 @@
 var express = require("express");
-
+var app = express();
 var PORT = process.env.PORT || 3000;
 
-var app = express();
+
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -10,9 +10,9 @@ app.use(express.static("public"));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(_dirname +'/public/assets/css/'));
-app.use(express.static(_dirname +'/public/assets/img/'));
-app.use(express.static(_dirname +'/public/assets/js/'));
+app.use(express.static(__dirname +'/public/assets/css/'));
+//app.use(express.static(__dirname +'/public/assets/img/'));
+//app.use(express.static(__dirname +'/public/assets/js/'));
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");

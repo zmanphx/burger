@@ -51,28 +51,36 @@ var orm = {
     });
   },
   create: function(objburger, cb) {
-    var sqlQuery = "INSERT INTO  burgers SET?", objburger  ;
+       
 
-    
-
-    console.log(sqlQuery);
-
-    connection.query(sqlQuery,  function(err, result) {
+    connection.query( "INSERT INTO  burgers SET ?", objburger, function(err, result) {
       if (err) {
         throw err;
       }
-
+        console.log("Post" + result);
       cb(result);
     });
   },
 
   update: function(id, column, value, cb) {
-    var sqlQuery = "UPDATE  burgers" ;
+    
+    var sqlQuery="";
+    if (id >0){
+     sqlQuery = "UPDATE  burgers" ;
 
     sqlQuery += " SET ";
     sqlQuery += column +"="+value;
     sqlQuery += " WHERE ";
     sqlQuery += " id="+id;
+    }
+    
+    else
+    { sqlQuery = "UPDATE  burgers" ;
+
+    sqlQuery += " SET ";
+    sqlQuery += column +"="+value;
+    
+    }
 
     console.log(sqlQuery);
     connection.query(sqlQuery, function(err, result) {
